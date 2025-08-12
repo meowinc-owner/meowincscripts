@@ -81,7 +81,7 @@ const Index = () => {
             <Terminal size={24} className="text-primary mr-2" />
             <span className="text-lg font-semibold">Meowinc Scripts</span>
           </div>
-          <p className="text-muted-foreground text-sm">2025 © Meowinc Scripts</p>
+          <p className="text-muted-foreground text-sm">2025 © Meowinc</p>
         </div>
       </footer>
     </div>;
