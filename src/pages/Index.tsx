@@ -65,16 +65,6 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-4 animate-fade-in" style={{animationDelay: '600ms'}}>
-            <Button className="bg-gradient-to-r from-primary to-accent glow-primary">
-              <Zap size={16} className="mr-2" />
-              Browse Scripts
-            </Button>
-            <Button variant="outline" className="border-primary/30 text-primary hover:bg-primary/10">
-              <Code size={16} className="mr-2" />
-              View Documentation
-            </Button>
-          </div>
         </div>
       </section>
 
