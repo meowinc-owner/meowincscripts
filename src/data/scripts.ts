@@ -33,7 +33,7 @@ export const mockScripts = [
     id: "4",
     name: "Forsaken",
     description: "Forasken Script with a shit ton of features",
-    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/meowinc/refs/heads/main/meowinc%20forsake "))()`,
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/meowinc/refs/heads/main/meowinc%20forsaken"))()`,
     category: "Gaming",
     tags: ["roblox", "forsaken", "script", "gaming"],
     downloads: 7,
