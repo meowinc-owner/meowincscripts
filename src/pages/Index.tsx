@@ -8,11 +8,6 @@ import { Terminal, Zap, Code, Star } from "lucide-react";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  const categories = useMemo(() => {
-    return Array.from(new Set(mockScripts.map(script => script.category)));
-  }, []);
 
   const filteredScripts = useMemo(() => {
     return mockScripts.filter(script => {
@@ -21,11 +16,9 @@ const Index = () => {
         script.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         script.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       
-      const matchesCategory = selectedCategory === null || script.category === selectedCategory;
-      
-      return matchesSearch && matchesCategory;
+      return matchesSearch;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery]);
 
   const totalDownloads = mockScripts.reduce((sum, script) => sum + script.downloads, 0);
 
@@ -73,9 +66,6 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <SearchBar
             onSearch={setSearchQuery}
-            onFilterChange={setSelectedCategory}
-            selectedCategory={selectedCategory}
-            categories={categories}
           />
         </div>
       </section>

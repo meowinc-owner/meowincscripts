@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, Check, Eye, Download } from "lucide-react";
+import { Copy, Check, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Script {
@@ -74,19 +74,10 @@ export const ScriptCard = ({ script, delay = 0 }: ScriptCardProps) => {
       </CardHeader>
 
       <CardContent className="space-y-4">
-        <div className="code-block relative group/code">
-          <pre className="text-xs overflow-x-auto max-h-32 text-foreground/80">
+        <div className="code-block">
+          <pre className="text-xs text-foreground/80 whitespace-pre-wrap break-all">
             <code>{script.code}</code>
           </pre>
-          <div className="absolute top-2 right-2 opacity-0 group-hover/code:opacity-100 transition-opacity">
-            <Button
-              size="sm"
-              variant="secondary"
-              className="h-7 w-7 p-0"
-            >
-              <Eye size={14} />
-            </Button>
-          </div>
         </div>
 
         <div className="flex flex-wrap gap-1">
