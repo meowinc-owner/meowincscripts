@@ -21,7 +21,7 @@ const Index = () => {
           <div className="flex items-center justify-center mb-8 animate-float">
             <Terminal size={48} className="text-primary mr-4 animate-glow-pulse" />
             <h1 className="text-5xl md:text-7xl font-bold gradient-text">
-              Meowinc
+              Meowinc Scripts
             </h1>
           </div>
           
@@ -81,7 +81,7 @@ const Index = () => {
             <Terminal size={24} className="text-primary mr-2" />
             <span className="text-lg font-semibold">Meowinc Scripts</span>
           </div>
-          <p className="text-muted-foreground text-sm">2025 © Meowinc</p>
+          <p className="text-muted-foreground text-sm">2025 © Meowinc Scripts</p>
         </div>
       </footer>
     </div>;
