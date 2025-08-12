@@ -21,5 +21,25 @@ export const mockScripts = [
     tags: ["roblox", "ink", "games", "script"],
     downloads: getRandomDownloads(),
     author: "Meowinc Scripts"
+  },
+  {
+    id: "3",
+    name: "Murder Mystery 2",
+    description: "Premium script for Murder Mystery 2 with exclusive features",
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/meowinc-murder-mystery-2/refs/heads/main/meowinc%20murder%20mystery%202"))()`,
+    category: "Gaming",
+    tags: ["roblox", "murder mystery 2", "script", "gaming"],
+    downloads: getRandomDownloads(),
+    author: "Meowinc Scripts"
+  },
+  {
+    id: "4",
+    name: "Forsaken",
+    description: "Exclusive Forsaken script with advanced utilities",
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/meowinc/refs/heads/main/meowinc%20forsake "))()`,
+    category: "Gaming",
+    tags: ["roblox", "forsaken", "script", "gaming"],
+    downloads: getRandomDownloads(),
+    author: "Meowinc Scripts"
   }
 ];
