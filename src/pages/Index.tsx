@@ -27,9 +27,7 @@ const Index = () => {
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in" style={{
           animationDelay: '200ms'
-        }}>
-            The ultimate collection of powerful scripts for automation, gaming, and productivity
-          </p>
+        }}>The ultimate collection of Meowinc's Special Sauce. OP Scripts at YOUR fingertips.</p>
           
           <div className="flex items-center justify-center gap-8 mb-12 animate-fade-in" style={{
           animationDelay: '400ms'
