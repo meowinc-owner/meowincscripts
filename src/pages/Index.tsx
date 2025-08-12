@@ -1,10 +1,8 @@
 import { useState, useMemo } from "react";
 import { SearchBar } from "@/components/SearchBar";
 import { ScriptCard } from "@/components/ScriptCard";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { mockScripts } from "@/data/scripts";
-import { Terminal, Zap, Code, Star } from "lucide-react";
+import { Terminal, Star } from "lucide-react";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
