@@ -30,27 +30,23 @@ const Index = () => {
         "2": prev["2"] + 1
       }));
     }, 7000);
-
     return () => {
       clearInterval(interval1);
       clearInterval(interval2);
     };
   }, []);
-
   const scriptsWithUpdatedDownloads = useMemo(() => {
     return mockScripts.map(script => ({
       ...script,
       downloads: scriptDownloads[script.id] || script.downloads
     }));
   }, [scriptDownloads]);
-
   const filteredScripts = useMemo(() => {
     return scriptsWithUpdatedDownloads.filter(script => {
       const matchesSearch = searchQuery === "" || script.name.toLowerCase().includes(searchQuery.toLowerCase()) || script.description.toLowerCase().includes(searchQuery.toLowerCase()) || script.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesSearch;
     });
   }, [searchQuery, scriptsWithUpdatedDownloads]);
-  
   const totalDownloads = scriptsWithUpdatedDownloads.reduce((sum, script) => sum + script.downloads, 0);
   return <div className="min-h-screen">
       {/* Hero Section */}
@@ -81,7 +77,7 @@ const Index = () => {
               <div className="text-sm text-muted-foreground">Total Downloads</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">4.9</div>
+              <div className="text-3xl font-bold text-primary">4.7</div>
               <div className="text-sm text-muted-foreground flex items-center gap-1">
                 <Star size={12} className="fill-current" />
                 Average Rating
