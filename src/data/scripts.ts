@@ -1,3 +1,6 @@
+// Generate random starting downloads between 1-100
+const getRandomDownloads = () => Math.floor(Math.random() * 100) + 1;
+
 export const mockScripts = [
   {
     id: "1",
@@ -6,8 +9,8 @@ export const mockScripts = [
     code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/meowinc-the-strongest-battleground/refs/heads/main/meowinc%20the%20strongest%20battleground"))()`,
     category: "Gaming",
     tags: ["roblox", "battlegrounds", "script", "gaming"],
-    downloads: 45230,
-    author: "Meowinc"
+    downloads: getRandomDownloads(),
+    author: "Meowinc Scripts"
   },
   {
     id: "2",
@@ -16,7 +19,7 @@ export const mockScripts = [
     code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/hehehe9028/MEOWINC-ink-game/refs/heads/main/meowinc%20ink%20game"))()`,
     category: "Gaming",
     tags: ["roblox", "ink", "games", "script"],
-    downloads: 32150,
-    author: "Meowinc"
+    downloads: getRandomDownloads(),
+    author: "Meowinc Scripts"
   }
 ];

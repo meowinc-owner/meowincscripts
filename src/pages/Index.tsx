@@ -1,17 +1,57 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { SearchBar } from "@/components/SearchBar";
 import { ScriptCard } from "@/components/ScriptCard";
 import { mockScripts } from "@/data/scripts";
 import { Terminal, Star } from "lucide-react";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [scriptDownloads, setScriptDownloads] = useState<Record<string, number>>(() => {
+    const downloads: Record<string, number> = {};
+    mockScripts.forEach(script => {
+      downloads[script.id] = script.downloads;
+    });
+    return downloads;
+  });
+
+  // Update downloads for each script with different intervals
+  useEffect(() => {
+    // Script 1 updates every 5 seconds
+    const interval1 = setInterval(() => {
+      setScriptDownloads(prev => ({
+        ...prev,
+        "1": prev["1"] + 1
+      }));
+    }, 5000);
+
+    // Script 2 updates every 7 seconds (different delay)
+    const interval2 = setInterval(() => {
+      setScriptDownloads(prev => ({
+        ...prev,
+        "2": prev["2"] + 1
+      }));
+    }, 7000);
+
+    return () => {
+      clearInterval(interval1);
+      clearInterval(interval2);
+    };
+  }, []);
+
+  const scriptsWithUpdatedDownloads = useMemo(() => {
+    return mockScripts.map(script => ({
+      ...script,
+      downloads: scriptDownloads[script.id] || script.downloads
+    }));
+  }, [scriptDownloads]);
+
   const filteredScripts = useMemo(() => {
-    return mockScripts.filter(script => {
+    return scriptsWithUpdatedDownloads.filter(script => {
       const matchesSearch = searchQuery === "" || script.name.toLowerCase().includes(searchQuery.toLowerCase()) || script.description.toLowerCase().includes(searchQuery.toLowerCase()) || script.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesSearch;
     });
-  }, [searchQuery]);
-  const totalDownloads = mockScripts.reduce((sum, script) => sum + script.downloads, 0);
+  }, [searchQuery, scriptsWithUpdatedDownloads]);
+  
+  const totalDownloads = scriptsWithUpdatedDownloads.reduce((sum, script) => sum + script.downloads, 0);
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 px-4 text-center overflow-hidden">
