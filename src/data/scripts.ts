@@ -49,4 +49,14 @@ export const mockScripts = [
     downloads: 18,
     author: "Meowinc Scripts"
   }
+  {
+    id: "6",
+    name: "Rivals",
+    description: "Aimbot, Esp, Tracers, Silent Aim, Wallhack, and a LOT more.",
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Rivals"))()`,
+    category: "Gaming",
+    tags: ["roblox", "rivals", "aimbot", "esp"],
+    downloads: 183,
+    author: "Meowinc Scripts"
+  }
 ];
