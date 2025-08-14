@@ -58,5 +58,15 @@ export const mockScripts = [
     tags: ["roblox", "rivals", "aimbot", "esp"],
     downloads: 183,
     author: "Meowinc Scripts"
+  },
+  {
+    id: "7",
+    name: "Tower of Hell",
+    description: "I even honestly have no clue what to put here",
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Tower%20of%20Hell"))()`,
+    category: "Gaming",
+    tags: ["roblox", "toh", "towerofhell", "niggers"],
+    downloads: 387,
+    author: "Meowinc Scripts"
   }
 ];
