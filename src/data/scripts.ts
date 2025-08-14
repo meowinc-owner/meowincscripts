@@ -48,7 +48,7 @@ export const mockScripts = [
     tags: ["roblox", "universal", "aimbot", "aim"],
     downloads: 18,
     author: "Meowinc Scripts"
-  }
+  },
   {
     id: "6",
     name: "Rivals",
