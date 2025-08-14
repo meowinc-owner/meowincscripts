@@ -41,11 +41,11 @@ export const mockScripts = [
   },
   {
     id: "5",
-    name: "Universal Aimbot",
-    description: "OP Aimbot, actually good tho",
-    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/UniversalAimbot.txt"))()`,
+    name: "Universal",
+    description: "OP, actually good tho",
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Universal"))()`,
     category: "Gaming",
-    tags: ["roblox", "universal", "aimbot", "aim"],
+    tags: ["roblox", "universal", "aimbot", "esp"],
     downloads: 18,
     author: "Meowinc Scripts"
   },
