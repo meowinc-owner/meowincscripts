@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, Check, Download } from "lucide-react";
+import { Copy, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Script {
@@ -19,9 +19,10 @@ interface Script {
 interface ScriptCardProps {
   script: Script;
   delay?: number;
+  onViewDetails: (script: Script) => void;
 }
 
-export const ScriptCard = ({ script, delay = 0 }: ScriptCardProps) => {
+export const ScriptCard = ({ script, delay = 0, onViewDetails }: ScriptCardProps) => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -44,71 +45,53 @@ export const ScriptCard = ({ script, delay = 0 }: ScriptCardProps) => {
   };
 
   return (
-    <Card 
-      className="group bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] animate-slide-up"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div className="space-y-1">
-            <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
-              {script.name}
-            </CardTitle>
-            <CardDescription className="text-sm text-muted-foreground">
-              {script.description}
-            </CardDescription>
+    <Card className="gradient-card shadow-card border-border hover:shadow-glow transition-all duration-300 group">
+      <CardContent className="p-6">
+        <div className="flex items-start justify-between mb-3">
+          <div className="flex-1">
+            <h3 className="text-xl font-semibold mb-2 text-foreground">{script.name}</h3>
+            <p className="text-muted-foreground text-sm mb-3">{script.description}</p>
           </div>
-          <Badge variant="secondary" className="ml-2 shrink-0">
-            {script.category}
-          </Badge>
-        </div>
-        
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span>by {script.author}</span>
-          <span>•</span>
-          <div className="flex items-center gap-1">
-            <Download size={12} />
-            {script.downloads.toLocaleString()}
-          </div>
-        </div>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
-        <div className="code-block">
-          <pre className="text-xs text-foreground/80 whitespace-pre-wrap break-all">
-            <code>{script.code}</code>
-          </pre>
+          <Badge variant="secondary" className="ml-3 text-xs">Lua</Badge>
         </div>
 
-        <div className="flex flex-wrap gap-1">
-          {script.tags.map((tag) => (
+        <div className="flex flex-wrap gap-1 mb-4">
+          {script.tags.map((tag, index) => (
             <Badge
               key={tag}
-              variant="outline"
-              className="text-xs px-2 py-0.5 border-primary/30 text-primary/80 hover:bg-primary/10"
+              variant={index === 0 ? "default" : "outline"}
+              className={index === 0 ? "text-xs bg-primary/10 text-primary border-primary/20" : "text-foreground text-xs"}
             >
               {tag}
             </Badge>
           ))}
         </div>
 
-        <Button
-          onClick={handleCopy}
-          className="w-full group/btn bg-gradient-to-r from-primary to-accent hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300"
-          disabled={copied}
-        >
-          {copied ? (
-            <>
-              <Check size={16} className="mr-2 text-green-400" />
-              Copied!
-            </>
-          ) : (
-            <>
-              <Copy size={16} className="mr-2 group-hover/btn:scale-110 transition-transform" />
-              Copy Script
-            </>
-          )}
-        </Button>
+        <div className="relative">
+          <pre className="bg-code-bg border border-code-border rounded-lg p-4 overflow-x-auto text-sm mb-4 max-h-48">
+            <code>
+              loadstring(game:HttpGet(<span style={{color: 'hsl(var(--syntax-string))'}}>"{script.code.split('"')[1]}"</span>,true))()
+            </code>
+          </pre>
+          <div className="flex gap-2">
+            <Button
+              onClick={handleCopy}
+              variant="secondary"
+              className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <Copy className="h-4 w-4" />
+              Copy
+            </Button>
+            <Button
+              onClick={() => onViewDetails(script)}
+              variant="outline"
+              className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <ExternalLink className="h-4 w-4" />
+              View Details
+            </Button>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
