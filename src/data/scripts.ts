@@ -63,7 +63,7 @@ export const mockScripts = [
     id: "7",
     name: "Troll is a Pinning Tower 2 - Godly Troll",
     description: "I even honestly have no clue what to put here",
-    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Key%20Systems/Troll%20Is%20a%20Pinning%20Tower%202"))()`,
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Troll%20is%20a%20Pinning%20Tower%202"))()`,
     category: "Gaming",
     tags: ["roblox", "troll", "bullying", "niggers"],
     downloads: 387,
