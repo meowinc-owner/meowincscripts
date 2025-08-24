@@ -61,11 +61,11 @@ export const mockScripts = [
   },
   {
     id: "7",
-    name: "Tower of Hell",
+    name: "Troll is a Pinning Tower 2 - Godly Troll",
     description: "I even honestly have no clue what to put here",
-    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Tower%20of%20Hell"))()`,
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/meowinc-owner/scripts/refs/heads/main/Key%20Systems/Troll%20Is%20a%20Pinning%20Tower%202"))()`,
     category: "Gaming",
-    tags: ["roblox", "toh", "towerofhell", "niggers"],
+    tags: ["roblox", "troll", "bullying", "niggers"],
     downloads: 387,
     author: "Meowinc Scripts"
   }
